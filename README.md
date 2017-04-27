@@ -6,7 +6,7 @@
 ## Quick preview
 ![demo](./static/demo.gif)
 
-## Build Setup
+## Run demo
 
 ``` bash
 # install dependencies
@@ -15,20 +15,48 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## How to use
+1. Please install axios ``` npm install axios --save ```  
+2. ```  ```
+3. import and user it
+
+### Sample
+```
+ <TypeAhead
+      src="/static/data.json?keyword=:keyword"
+      :getResponse="getResponse"
+    ></TypeAhead>
+
+```
+```
+methods: {
+      getResponse: function (response) {
+        return response.data.items
+      }
+    }
+```
+
+## Config props
+### v-model
+You can get the result by set ```v-model=""``` attribute
+### Necessary
+1. **src**: The api url for get the data
+2. **getResponse**: The function to get a array form response
+
+### Optional
+1. **selectFirst** default:*false* auto select first item
+2. **queryParamName** default:*:keyword* this will be replace to what you input in ajax request
+3. **limit** default:*9999* how many items will show in the list
+4. **minChars** default:*2* only words length large than this number can emit the request
+5. **delayTime** default:*500* delay time for emit the request for avoiding request when inputing
+6. **placeholder** default:*null* placeholder
+7. **classes** default:*null* the class you want add to input component
+8. **onHit** default:*Function* how to use the things you hit
+9. **highlighting** default:*Function* highlighting every item
+10. **render** default:*Function* to render the lists which will be show
+11. **fetch** default:*Function* how to send the url
 
 # License
 vue2-typeahead is released under the MIT License. See the bundled LICENSE file for details.

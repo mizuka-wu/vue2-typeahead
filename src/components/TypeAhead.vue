@@ -124,7 +124,7 @@
         require: false,
         type: Function,
         default: function (item) {
-          return item.replace('Hello', '<b>Hello</b>')
+          return item
         }
       },
 
@@ -147,8 +147,8 @@
         // 如何获取数据
         require: false,
         type: Function,
-        default: function () {
-          return axios.get(this.src.replace(this.queryParamName, this.query))
+        default: function (url) {
+          return axios.get(url)
         }
       }
     },
@@ -176,7 +176,7 @@
           if (this.lastTime - event.timeStamp === 0) {
             this.loading = true
 
-            this.fetch().then((response) => {
+            this.fetch(this.src.replace(this.queryParamName, this.query)).then((response) => {
               if (this.query) {
                 let data = this.getResponse(response)
                 this.items = this.render(this.limit ? data.slice(0, this.limit) : data)
