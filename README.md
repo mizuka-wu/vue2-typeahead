@@ -5,7 +5,7 @@
 
 ## Quick preview
 ![demo](./static/demo.gif)
-
+[Demo](http://trionfo1993.github.io/typeahead/)
 ## Run demo
 
 ``` bash
@@ -18,10 +18,11 @@ npm run dev
 ```
 
 ## How to use
-1. Please install axios ``` npm install axios --save ```  
-2. ```  ```
-3. import and use it
-4. you can get a config sample from Demo.vue
+1. Please install axios ``` npm install axios --save ``` 
+2. It base on bootstrap css
+3. ``` npm install vue2-typeahead ```
+4. import and use it ``` import TypeAhead from 'vue2-typeahead/src/components/TypeAhead.vue' ```
+5. you can get a config sample from Demo.vue
 
 ### Sample
 ```
