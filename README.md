@@ -3,6 +3,9 @@
 > typeahead for vue2  
 > Based on[https://github.com/pespantelis/vue-typeahead](https://github.com/pespantelis/vue-typeahead)
 
+## Quick preview
+![demo](./static/demo.gif)
+
 ## Build Setup
 
 ``` bash
