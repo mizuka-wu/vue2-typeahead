@@ -2,9 +2,15 @@
   "name": "vue2-typeahead",
   "version": "1.0.0",
   "description": "typeahead for vue2",
-  "author": "Edward wu <trionfo1993@hotmail.com>",
-  "private": true,
+  "author": "mizuka <trionfo1993@hotmail.com>",
+  "private": false,
+  "keywords": ["vue", "typeahead"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trionfo1993/vue2-typeahead"
+  },
   "main": "src/components/TypeAhead.vue",
+  "license": "MIT",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
