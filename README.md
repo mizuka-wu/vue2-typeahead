@@ -1,6 +1,7 @@
 # vue2-typeahead
 
-> typeahead for vue2
+> typeahead for vue2  
+> Based on[https://github.com/pespantelis/vue-typeahead](https://github.com/pespantelis/vue-typeahead)
 
 ## Build Setup
 
