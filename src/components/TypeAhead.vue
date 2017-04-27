@@ -14,7 +14,7 @@
       <ul v-show="hasItems" class="dropdown-menu-list dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
         <li v-for="(item , index) in items" :class="{active:activeClass(index)}"
             @mousedown="hit" @mousemove="setActive(index)">
-          <a v-html="highlighting(item)"></a>
+          <a v-html="highlighting(item, vue)"></a>
         </li>
       </ul>
       <ul v-if="showSearchingFlag" v-show="!hasItems&&!isEmpty" class="dropdown-menu" role="menu"
@@ -124,7 +124,7 @@
         require: false,
         type: Function,
         default: function (item) {
-          return item
+          return item.replace(this.query, `<b>${this.query}</b>`)
         }
       },
 
@@ -179,7 +179,7 @@
             this.fetch(this.src.replace(this.queryParamName, this.query)).then((response) => {
               if (this.query) {
                 let data = this.getResponse(response)
-                this.items = this.render(this.limit ? data.slice(0, this.limit) : data)
+                this.items = this.render(this.limit ? data.slice(0, this.limit) : data, this)
 
                 this.current = -1
                 this.loading = false
@@ -203,7 +203,7 @@
 
       hit () {
         if (this.current !== -1) {
-          this.onHit(this.items[this.current])
+          this.onHit(this.items[this.current], this)
         }
         this.reset()
       },
@@ -247,6 +247,9 @@
       }
     },
     computed: {
+      vue: function () {
+        return this
+      },
       hasItems () {
         return this.items.length > 0
       },

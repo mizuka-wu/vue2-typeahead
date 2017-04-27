@@ -4,6 +4,7 @@
   "description": "typeahead for vue2",
   "author": "Edward wu <trionfo1993@hotmail.com>",
   "private": true,
+  "main": "src/components/TypeAhead.vue",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
