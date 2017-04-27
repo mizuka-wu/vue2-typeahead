@@ -1,6 +1,6 @@
 {
   "name": "vue2-typeahead",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "typeahead for vue2",
   "author": "mizuka <trionfo1993@hotmail.com>",
   "private": false,
@@ -9,7 +9,7 @@
     "type": "git",
     "url": "https://github.com/trionfo1993/vue2-typeahead"
   },
-  "main": "src/components/TypeAhead.vue",
+  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "node build/dev-server.js",
