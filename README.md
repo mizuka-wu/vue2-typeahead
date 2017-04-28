@@ -5,7 +5,7 @@
 
 ## Quick preview
 ![demo](./static/demo.gif)
-[Demo](http://trionfo1993.github.io/typeahead/)
+[Demo](http://mizuka.000webhostapp.com/Achievements/vue2-typeahead/#/)
 ## Run demo
 
 ``` bash
