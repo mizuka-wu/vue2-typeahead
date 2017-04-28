@@ -1,3 +1,4 @@
+![](./static/npm.png)
 # vue2-typeahead
 
 > typeahead for vue2  
