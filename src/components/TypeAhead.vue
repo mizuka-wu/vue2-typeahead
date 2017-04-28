@@ -39,7 +39,7 @@
     width: 100%;
   }
 </style>
-<script>
+<script lang="babel">
   import axios from 'axios'
   export default{
     name: 'TypeAhead',

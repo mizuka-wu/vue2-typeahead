@@ -18,11 +18,11 @@ npm run dev
 ```
 
 ## How to use
-1. Please install axios ``` npm install axios --save ``` 
+1. ~~Please install axios~~
 2. It base on bootstrap css
-3. ``` npm install vue2-typeahead ```
-4. import and use it ``` import TypeAhead from 'vue2-typeahead/src/components/TypeAhead.vue' ```
-5. you can get a config sample from Demo.vue
+3. ``` npm install vue2-typeahead --save```
+4. import and use it ``` import TypeAhead from 'vue2-typeahead' ``` or ``` import TypeAhead from 'vue2-typeahead/src/components/TypeAhead.vue' ```
+5. config (you can get a config sample from Demo.vue)
 
 ### Sample
 ```
