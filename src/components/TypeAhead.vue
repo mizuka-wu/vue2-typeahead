@@ -215,7 +215,7 @@
           this.current = -1
         }
         if (!this.selectFirst && this.current !== -1) {
-          this.onHit(this.items[this.current])
+          this.onHit(this.items[this.current], this)
         }
       },
 
@@ -226,7 +226,7 @@
           this.current = -1
         }
         if (!this.selectFirst && this.current !== -1) {
-          this.onHit(this.items[this.current])
+          this.onHit(this.items[this.current], this)
         }
       },
 
