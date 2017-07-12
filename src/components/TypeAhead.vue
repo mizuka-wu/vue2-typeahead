@@ -1,5 +1,4 @@
 <template>
-  <nav class="collapse navbar-collapse" role="navigation">
     <div class="input-group" :class="[classes]">
       <input type="text" class="form-control"
              :placeholder="placeholder"
@@ -31,7 +30,6 @@
         </li>
       </ul>
     </div>
-  </nav>
 </template>
 <style scoped>
   .dropdown-menu-list {

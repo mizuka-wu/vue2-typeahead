@@ -4,7 +4,11 @@
   "description": "typeahead for vue2",
   "author": "mizuka <trionfo1993@hotmail.com>",
   "private": false,
-  "keywords": ["vue", "typeahead", "vue2"],
+  "keywords": [
+    "vue",
+    "typeahead",
+    "vue2"
+  ],
   "files": [
     "src"
   ],
