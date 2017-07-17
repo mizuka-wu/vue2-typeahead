@@ -6,7 +6,7 @@
              v-model="query"
              @keydown.down="down"
              @keydown.up="up"
-             @keydown.enter="hit"
+             @keydown.enter.prevent="hit"
              @keydown.esc="reset"
              @input="update($event)"/>
 
