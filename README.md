@@ -61,6 +61,13 @@ You can get the result by set ```v-model=""``` attribute
 10. **render** default:*Function* to render the lists which will be show
 11. **fetch** default:*Function* how to send the url
 
+### What you can get in instance  
+Some function will return vue object, it is the instance of component and i use it to change the query, you can also get some useful data by it  
+1. items: option list after render function
+2. current: current id is select or cursor is hover
+3. data: the response data of fetch
+
+
 ## A Complete Config Sample
 ```
 <TypeAhead

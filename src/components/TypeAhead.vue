@@ -156,7 +156,8 @@
         query: '',
         current: -1,
         loading: false,
-        lastTime: 0
+        lastTime: 0,
+        data: []
       }
     },
     methods: {
@@ -177,6 +178,7 @@
             this.fetch(this.src.replace(this.queryParamName, this.query)).then((response) => {
               if (this.query) {
                 let data = this.getResponse(response)
+                this.data = this.limit ? data.slice(0, this.limit) : data
                 this.items = this.render(this.limit ? data.slice(0, this.limit) : data, this)
 
                 this.current = -1
