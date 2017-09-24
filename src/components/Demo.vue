@@ -91,7 +91,7 @@
       getResponse: function (response) {
         return response.data.data.items
       },
-      onHit: function (item, vue) {
+      onHit: function (item, vue, index) {
         vue.query = item
       },
       highlighting: function (item, vue) {
