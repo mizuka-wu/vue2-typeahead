@@ -175,7 +175,9 @@
           if (this.lastTime - event.timeStamp === 0) {
             this.loading = true
 
-            this.fetch(this.src.replace(this.queryParamName, this.query)).then((response) => {
+            const re = new RegExp(this.queryParamName, 'g');
+
+            this.fetch(this.src.replace(re, this.query)).then((response) => {
               if (this.query) {
                 let data = this.getResponse(response)
                 this.data = this.limit ? data.slice(0, this.limit) : data
