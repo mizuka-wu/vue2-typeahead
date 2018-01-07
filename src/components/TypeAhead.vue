@@ -44,73 +44,73 @@
     props: {
       selectFirst: {
         // 是否选择第一个选项
-        require: false,
+        required: false,
         type: Boolean,
         default: false
       },
       queryParamName: {
         // 被替换的单词
-        require: false,
+        required: false,
         type: String,
         default: ':keyword'
       },
       limit: {
         // 最大显示量
-        require: false,
+        required: false,
         type: Number,
         default: 9999
       },
       minChars: {
         // 最小进行查询的字符数量
-        require: false,
+        required: false,
         type: Number,
         default: 2
       },
       src: {
         // 请求地址
-        require: true,
+        required: true,
         type: String
       },
       delayTime: {
         // 发送延迟时间
-        require: false,
+        required: false,
         default: 500,
         type: Number
       },
       placeholder: {
         // 是否有placeholder
-        require: false,
+        required: false,
         type: String
       },
       showSearchingFlag: {
         // 是否显示搜索状态
-        require: false,
+        required: false,
         default: false,
         type: Boolean
       },
       NoResultText: {
         // 如果显示搜索状态，无结果的文本
-        require: false,
+        required: false,
         default: 'No result',
         type: String
       },
       SearchingText: {
         // 如果显示搜索状态，搜索的文本
-        require: false,
+        required: false,
         default: 'Searching...',
         type: String
       },
       classes: {
         // 所给填写框增加的类
-        require: false,
+        required: false,
         type: String
       },
       value: {
-        require: true,
+        required: true,
         type: String
       },
       onHit: {
-        require: false,
+        required: false,
         type: Function,
         default: function (item) {
           this.query = item
@@ -119,7 +119,7 @@
 
       highlighting: {
         // 高亮结果
-        require: false,
+        required: false,
         type: Function,
         default: function (item) {
           return item.replace(this.query, `<b>${this.query}</b>`)
@@ -128,7 +128,7 @@
 
       render: {
         // 对结果进行处理
-        require: false,
+        required: false,
         type: Function,
         default: function (items) {
           return items
@@ -137,13 +137,13 @@
 
       getResponse: {
         // 如何处理得到的请求
-        require: true,
+        required: true,
         type: Function
       },
 
       fetch: {
         // 如何获取数据
-        require: false,
+        required: false,
         type: Function,
         default: function (url) {
           return axios.get(url)
