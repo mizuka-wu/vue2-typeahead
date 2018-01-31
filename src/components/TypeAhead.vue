@@ -106,8 +106,9 @@
         type: String
       },
       value: {
-        required: true,
-        type: String
+        required: false,
+        type: String,
+        default: ''
       },
       onHit: {
         required: false,
