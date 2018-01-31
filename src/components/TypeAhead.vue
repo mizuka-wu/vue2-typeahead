@@ -176,7 +176,7 @@
           if (this.lastTime - event.timeStamp === 0) {
             this.loading = true
 
-            const re = new RegExp(this.queryParamName, 'g');
+            const re = new RegExp(this.queryParamName, 'g')
 
             this.fetch(this.src.replace(re, this.query)).then((response) => {
               if (this.query) {
