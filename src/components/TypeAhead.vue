@@ -123,7 +123,14 @@
         required: false,
         type: Function,
         default: function (item) {
-          return item.replace(this.query, `<b>${this.query}</b>`)
+          var re = new RegExp(this.query, 'ig');
+          var matches = item.match(re);
+
+          matches && matches.forEach(match => {
+            item = item.replace(match, `<b>${match}</b>`)
+          })
+
+          return item
         }
       },
 
