@@ -68,7 +68,7 @@
       },
       src: {
         // 请求地址
-        required: true,
+        required: false,
         type: String
       },
       delayTime: {
@@ -145,7 +145,7 @@
 
       getResponse: {
         // 如何处理得到的请求
-        required: true,
+        required: false,
         type: Function
       },
 
@@ -156,6 +156,11 @@
         default: function (url) {
           return axios.get(url)
         }
+      },
+
+      objectArray: {
+        required: false,
+        type: Array
       }
     },
     data () {
@@ -169,6 +174,19 @@
       }
     },
     methods: {
+      objectUpdate (){
+        var filtered = this.objectArray.filter(entity => entity.toLowerCase().includes(this.query.toLowerCase()));
+        this.data = this.limit ? filtered.slice(0, this.limit) : filtered;
+        this.items = this.render(this.limit ? this.data.slice(0, this.limit) : this.data, this)
+        
+        this.current = -1;
+
+        if (this.selectFirst) {
+          this.down()
+        }
+
+
+      },
       update (event) {
         this.lastTime = event.timeStamp
         if (!this.query) {
@@ -181,6 +199,10 @@
         // 添加的延时
         setTimeout(() => {
           if (this.lastTime - event.timeStamp === 0) {
+            if(this.objectArray){
+              return this.objectUpdate()
+            }
+
             this.loading = true
 
             const re = new RegExp(this.queryParamName, 'g')
@@ -278,6 +300,10 @@
           this.reset()
         }
       })
+
+      if(this.objectArray){
+        this.objectArray.sort()
+      }
     }
   }
 </script>
