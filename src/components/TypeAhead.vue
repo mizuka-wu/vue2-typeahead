@@ -1,6 +1,6 @@
 <template>
     <div class="input-group" :class="[classes]">
-      <input type="text" class="form-control"
+      <input type="text" class="form-control type-ahead-select taller"
              :placeholder="placeholder"
              autocomplete="off"
              v-model="query"
@@ -58,7 +58,7 @@
         // 最大显示量
         required: false,
         type: Number,
-        default: 9999
+        default: 10
       },
       minChars: {
         // 最小进行查询的字符数量
@@ -68,7 +68,7 @@
       },
       src: {
         // 请求地址
-        required: true,
+        required: false,
         type: String
       },
       delayTime: {
@@ -123,7 +123,14 @@
         required: false,
         type: Function,
         default: function (item) {
-          return item.replace(this.query, `<b>${this.query}</b>`)
+          var re = new RegExp(this.query, 'ig');
+          var matches = item.match(re);
+
+          matches && matches.forEach(match => {
+            item = item.replace(match, `<b>${match}</b>`)
+          })
+
+          return item
         }
       },
 
@@ -138,7 +145,7 @@
 
       getResponse: {
         // 如何处理得到的请求
-        required: true,
+        required: false,
         type: Function
       },
 
@@ -149,6 +156,11 @@
         default: function (url) {
           return axios.get(url)
         }
+      },
+
+      objectArray: {
+        required: false,
+        type: Array
       }
     },
     data () {
@@ -162,6 +174,19 @@
       }
     },
     methods: {
+      objectUpdate (){
+        var filtered = this.objectArray.filter(entity => entity.toLowerCase().includes(this.query.toLowerCase()));
+        this.data = this.limit ? filtered.slice(0, this.limit) : filtered;
+        this.items = this.render(this.limit ? this.data.slice(0, this.limit) : this.data, this)
+        
+        this.current = -1;
+
+        if (this.selectFirst) {
+          this.down()
+        }
+
+
+      },
       update (event) {
         this.lastTime = event.timeStamp
         if (!this.query) {
@@ -174,6 +199,10 @@
         // 添加的延时
         setTimeout(() => {
           if (this.lastTime - event.timeStamp === 0) {
+            if(this.objectArray){
+              return this.objectUpdate()
+            }
+
             this.loading = true
 
             const re = new RegExp(this.queryParamName, 'g')
@@ -271,7 +300,30 @@
           this.reset()
         }
       })
+
+      if(this.objectArray){
+        this.objectArray.sort()
+      }
     }
   }
 </script>
+
+<style scoped>
+  div.input-group input.form-control.type-ahead-select{
+    border-top-right-radius: .25rem;
+     border-bottom-right-radius: .25rem;
+  }
+
+  ul li{
+    padding: 5px .50rem;
+    margin: 0px .25rem;
+    cursor: pointer;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  ul li:hover{
+    background-color: #f1f2f3;
+  }
+</style>
 
