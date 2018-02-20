@@ -18,6 +18,9 @@ npm run dev
 
 ```
 
+## Warning
+Prepared rewrite by vue2.5 and bootstrap 4
+
 ## How to use
 1. ~~Please install axios~~
 2. It base on bootstrap css
