@@ -292,6 +292,7 @@
     },
 
     mounted () {
+	this.query = this.value
       /***
        * 使得其点击之外的部分自动收起
        */
