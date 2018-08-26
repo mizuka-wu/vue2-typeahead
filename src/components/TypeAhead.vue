@@ -39,6 +39,9 @@
 </style>
 <script lang="babel">
   import axios from 'axios'
+  function escapeRegExp(str) {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+  }
   export default{
     name: 'TypeAhead',
     props: {
@@ -123,7 +126,7 @@
         required: false,
         type: Function,
         default: function (item) {
-          var re = new RegExp(this.query, 'ig');
+          var re = new RegExp(escapeRegExp(this.query), 'ig');
           var matches = item.match(re);
 
           matches && matches.forEach(match => {
@@ -207,7 +210,7 @@
 
             const re = new RegExp(this.queryParamName, 'g')
 
-            this.fetch(this.src.replace(re, this.query)).then((response) => {
+            this.fetch(this.src.replace(re, encodeURIComponent(this.query))).then((response) => {
               if (this.query) {
                 let data = this.getResponse(response)
                 this.data = this.limit ? data.slice(0, this.limit) : data
