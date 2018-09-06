@@ -12,6 +12,7 @@
 
       <ul v-show="hasItems" class="dropdown-menu-list dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
         <li v-for="(item , index) in items" :class="{active:activeClass(index)}"
+            :key="'li'+index"
             @mousedown="hit" @mousemove="setActive(index)">
           <a v-html="highlighting(item, vue)"></a>
         </li>
@@ -39,9 +40,9 @@
 </style>
 <script lang="babel">
   import axios from 'axios'
-  function escapeRegExp(str) {
-    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-  }
+  function escapeRegExp (str) {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
+}
   export default{
     name: 'TypeAhead',
     props: {
@@ -126,8 +127,8 @@
         required: false,
         type: Function,
         default: function (item) {
-          var re = new RegExp(escapeRegExp(this.query), 'ig');
-          var matches = item.match(re);
+          var re = new RegExp(escapeRegExp(this.query), 'ig')
+          var matches = item.match(re)
 
           matches && matches.forEach(match => {
             item = item.replace(match, `<b>${match}</b>`)
@@ -177,18 +178,16 @@
       }
     },
     methods: {
-      objectUpdate (){
-        var filtered = this.objectArray.filter(entity => entity.toLowerCase().includes(this.query.toLowerCase()));
-        this.data = this.limit ? filtered.slice(0, this.limit) : filtered;
+      objectUpdate () {
+        var filtered = this.objectArray.filter(entity => entity.toLowerCase().includes(this.query.toLowerCase()))
+        this.data = this.limit ? filtered.slice(0, this.limit) : filtered
         this.items = this.render(this.limit ? this.data.slice(0, this.limit) : this.data, this)
-        
-        this.current = -1;
+  
+        this.current = -1
 
         if (this.selectFirst) {
           this.down()
         }
-
-
       },
       update (event) {
         this.lastTime = event.timeStamp
@@ -202,7 +201,7 @@
         // 添加的延时
         setTimeout(() => {
           if (this.lastTime - event.timeStamp === 0) {
-            if(this.objectArray){
+            if (this.objectArray) {
               return this.objectUpdate()
             }
 
@@ -295,7 +294,7 @@
     },
 
     mounted () {
-	this.query = this.value
+      this.query = this.value
       /***
        * 使得其点击之外的部分自动收起
        */
@@ -305,7 +304,7 @@
         }
       })
 
-      if(this.objectArray){
+      if (this.objectArray) {
         this.objectArray.sort()
       }
     }
