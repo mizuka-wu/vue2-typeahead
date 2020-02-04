@@ -6,18 +6,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-lib": "vue-cli-service build --target lib --dest lib --name vue2-typeahead src/components/TypeAhead.vue",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
-  "main": "src/components/TypeAhead.vue",
+  "main": "lib/vue2-typeahead.umd.min.js",
   "keywords": [
     "vue",
     "typeahead",
     "vue2",
     "autocomplete"
-  ],
-  "files": [
-    "src/components"
   ],
   "repository": {
     "type": "git",
