@@ -1,14 +1,31 @@
 {
-  "name": "typeahead",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vue2-typeahead",
+  "version": "1.2.0",
+  "description": "typeahead for vue2",
+  "author": "mizuka <mizuka.wu@outlook.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
+  "main": "src/components/TypeAhead.vue",
+  "keywords": [
+    "vue",
+    "typeahead",
+    "vue2",
+    "autocomplete"
+  ],
+  "files": [
+    "src/components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mizuka-wu/vue2-typeahead"
+  },
+  "license": "MIT",
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.4.4",
     "vue": "^2.6.10"
   },
