@@ -6,7 +6,7 @@
 ## Quick preview
 
 ![demo](./static/demo.gif)
-[Demo](http://mizuka.000webhostapp.com/Achievements/vue2-typeahead/#/)
+[Demo](https://www.mizuka.top/vue2-typeahead/)
 
 ## Run demo
 
