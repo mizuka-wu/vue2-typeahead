@@ -5,7 +5,7 @@
 
 ## Quick preview
 
-![demo](./src/assets/demo.gif)
+![demo](https://github.com/mizuka-wu/vue2-typeahead/blob/master/src/assets/demo.gif?raw=true)
 [Demo](https://www.mizuka.top/vue2-typeahead/)
 
 ## Run demo
