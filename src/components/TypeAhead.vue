@@ -1,6 +1,7 @@
 <template>
   <div class="input-group" :class="[classes]">
     <input
+      v-bind="$attrs"
       type="text"
       class="form-control type-ahead-select taller"
       :placeholder="placeholder"
