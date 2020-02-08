@@ -1,11 +1,9 @@
+name: upload release asset
 on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
       - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
-
-name: Upload Release Asset
-
 jobs:
   build:
     name: Upload Release Asset
@@ -18,7 +16,7 @@ jobs:
       - name: Install
         run: npm ci && npm run build-lib && npm run changelog
       - name: Build project # This would actually build your project, using zip for an example artifact
-        run: zip --junk-paths lib lib
+        run: zip -r lib.zip lib
       - name: Create Release
         uses: actions/create-release@v1.0.0
         env:
