@@ -25,4 +25,4 @@ jobs:
         env:
           GHR_COMPRESS: zip
           GHR_PATH: lib/
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
