@@ -120,7 +120,9 @@ export default {
       return newItem
     },
     fetch: function (url) {
-      return axios.get(url)
+      return new Promise(resolve =>
+        setTimeout(() => resolve(axios.get(url)), 1000)
+      )
     }
   }
 }

@@ -13,41 +13,42 @@
       @keydown.esc="reset"
       @input="update($event)"
     />
-
-    <ul
-      v-show="hasItems"
-      class="dropdown-menu-list dropdown-menu"
-      role="menu"
-      aria-labelledby="dropdownMenu"
-    >
-      <li
-        v-for="(item , index) in items"
-        :class="{active:activeClass(index)}"
-        :key="'li'+index"
-        @mousedown="hit"
-        @mousemove="setActive(index)"
+    <div class="typeahead-dropdown-container" v-if="showResult">
+      <ul
+        v-show="hasItems"
+        class="dropdown-menu-list dropdown-menu"
+        role="menu"
+        aria-labelledby="dropdownMenu"
       >
-        <a v-html="highlighting(item, vue)"></a>
-      </li>
-    </ul>
-    <ul
-      v-if="showSearchingFlag"
-      v-show="!hasItems&&!isEmpty"
-      class="dropdown-menu"
-      role="menu"
-      aria-labelledby="dropdownMenu"
-    >
-      <li class="active" @mousemove="setActive(index)" v-if="!loading">
-        <a>
-          <span v-html="NoResultText"></span>
-        </a>
-      </li>
-      <li class="active" @mousemove="setActive(index)" v-else>
-        <a>
-          <span v-html="SearchingText"></span>
-        </a>
-      </li>
-    </ul>
+        <li
+          v-for="(item , index) in items"
+          :class="{active:activeClass(index)}"
+          :key="'li'+index"
+          @mousedown="hit"
+          @mousemove="setActive(index)"
+        >
+          <a v-html="highlighting(item, vue)"></a>
+        </li>
+      </ul>
+      <ul
+        v-if="showSearchingFlag"
+        v-show="!hasItems"
+        class="dropdown-menu dropdown-menu-list"
+        role="menu"
+        aria-labelledby="dropdownMenu"
+      >
+        <li class="active" v-if="!loading">
+          <a>
+            <span v-html="NoResultText"></span>
+          </a>
+        </li>
+        <li class="active" v-else>
+          <a>
+            <span v-html="SearchingText"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <style scoped>
@@ -108,7 +109,7 @@ export default {
     showSearchingFlag: {
       // 是否显示搜索状态
       required: false,
-      default: false,
+      default: true,
       type: Boolean
     },
     NoResultText: {
@@ -193,7 +194,8 @@ export default {
       current: -1,
       loading: false,
       lastTime: 0,
-      data: []
+      data: [],
+      showResult: false
     }
   },
   methods: {
@@ -225,6 +227,7 @@ export default {
           }
 
           this.loading = true
+          this.showResult = true
 
           const re = new RegExp(this.queryParamName, 'g')
 
@@ -288,6 +291,7 @@ export default {
     reset: function () {
       this.items = []
       this.loading = false
+      this.showResult = false
     }
 
   },
@@ -331,6 +335,10 @@ export default {
 </script>
 
 <style scoped>
+.typeahead-dropdown-container {
+  position: relative;
+  width: 100%;
+}
 div.input-group input.form-control.type-ahead-select {
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
