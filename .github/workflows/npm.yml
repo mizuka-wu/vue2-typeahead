@@ -17,7 +17,7 @@ jobs:
           persist-credentials: false
       - name: Install
         run: npm ci && npm run build-lib && npm run changelog
-      - name: publish  
+      - name: publish
         uses: JS-DevTools/npm-publish@v1
-          with:
-            token: ${{ secrets.NPM_TOKEN }}
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
