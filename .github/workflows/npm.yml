@@ -19,7 +19,8 @@ jobs:
       - run: npm changelog
       - uses: JS-DevTools/npm-publish@v1
         with:
-          token: ${{ secrets.NPM_TOKEN }}
+          env:
+            token: ${{ secrets.NPM_TOKEN }}
       uses: fnkr/github-action-ghr@v1
         if: startsWith(github.ref, 'refs/tags/')
         env:
