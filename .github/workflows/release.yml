@@ -15,6 +15,11 @@ jobs:
           persist-credentials: false
       - name: Install
         run: npm ci && npm run build-lib && npm run changelog
+      - name: Read Changelog
+        id: read_changelog
+        uses: GenesisSam/get-simple-file-action@v1.0.4
+        with:
+          file-name: ${{ 'lib/changelog.md' }}
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: zip -r lib.zip lib
       - name: Create Release
@@ -25,6 +30,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
+          data: ${{ steps.openFile.outputs.data }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
