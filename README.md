@@ -74,6 +74,10 @@ You can get the result by set `v-model=""` attribute
 10. **render** default:_Function_ to render the lists which will be show
 11. **fetch** default:_Function_ how to send the url
 
+### other
+
+other attribute will bind on `<input />` like disabled on v1.3.0
+
 ### What you can get in instance
 
 Some function will return vue object, it is the instance of component and i use it to change the query, you can also get some useful data by it
