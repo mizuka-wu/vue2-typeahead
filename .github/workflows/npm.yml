@@ -1,3 +1,4 @@
+name: publish to npm
 on:
   push:
     branches:
@@ -10,10 +11,11 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
-          node-version: 10
+          persist-credentials: false
+      - name: Install
       - run: npm ci && npm run build-lib && npm run changelog
       - uses: JS-DevTools/npm-publish@v1
         with:
