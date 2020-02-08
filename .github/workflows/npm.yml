@@ -15,8 +15,8 @@ jobs:
         with:
           node-version: 10
       - run: npm ci
-      - run: npm build-lib
-      - run: npm changelog
+      - run: npm run build-lib
+      - run: npm run changelog
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
