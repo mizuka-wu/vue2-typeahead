@@ -18,6 +18,7 @@ jobs:
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: zip -r lib.zip lib
       - name: Create Release
+        id: create_release
         uses: actions/create-release@v1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
