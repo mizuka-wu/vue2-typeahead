@@ -3,6 +3,8 @@
 > typeahead for vue2  
 > Based on[https://github.com/pespantelis/vue-typeahead](https://github.com/pespantelis/vue-typeahead)
 
+![.github/workflows/npm.yml](https://github.com/mizuka-wu/vue2-typeahead/workflows/.github/workflows/npm.yml/badge.svg)
+
 ## Quick preview
 
 ![demo](https://github.com/mizuka-wu/vue2-typeahead/blob/master/src/assets/demo.gif?raw=true)
