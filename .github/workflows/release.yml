@@ -30,7 +30,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: ${{ steps.openFile.outputs.data }}
+          body: ${{ steps.read_changelog.outputs.data }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
