@@ -153,4 +153,4 @@ vue2-typeahead is released under the MIT License. See the bundled LICENSE file f
 
 # donate
 
-![donate](https://www.mizuka.top/assets/donate.jpg)
+![donate](https://github.com/mizuka-wu/mizuka-wu.github.io/blob/master/assets/donate.jpg?raw=true)
